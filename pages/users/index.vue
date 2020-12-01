@@ -8,6 +8,21 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-2 col-sm-2 col-md-2 col-xl-2">
+        ID
+      </div>
+      <div class="col-4 col-sm-4 col-md-4 col-xl-4">
+        Name
+      </div>
+      <div class="col-4 col-sm-4 col-md-4 col-xl-4">
+        email
+      </div>
+      <div class="col-2 col-sm-2 col-md-2 col-xl-2">
+        Detail
+      </div>
+    </div>
+
     <div class="row" v-for="(item, index) in user_list">
       <div class="col-2 col-sm-2 col-md-2 col-xl-2">
         {{item.id}}
@@ -19,20 +34,34 @@
         {{item.email}}
       </div>
       <div class="col-2 col-sm-2 col-md-2 col-xl-2">
-        <button class="btn btn-primary" v-on:click="detail">
+        <button class="btn btn-primary" v-on:click="openModal">
           Detail
         </button>
       </div>
     </div>
+    <Modal v-if="modalFlag">
+      <div>モーダルの内容</div>
+      <div>モーダルの内容</div>
+      <div>モーダルの内容</div>
+      <div>モーダルの内容</div>
+      <div>モーダルの内容</div>
+      <button @click="closeModal">閉じる</button>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Modal from '~/components/Modal.vue'
 
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
-      user_list: []
+      user_list: [],
+      modalFlag: false
     }
   },
   mounted(){
@@ -41,7 +70,13 @@ export default {
   methods: {
     detail() {
       alert('detail');
-    }
+    },
+    openModal() {
+      this.modalFlag = true
+    },
+    closeModal() {
+      this.modalFlag = false
+    },
   }
 }
 

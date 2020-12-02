@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">
+      <div class="title">
         app05
-      </h1>
+      </div>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -46,17 +45,9 @@ export default {}
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 30px;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
 }
 
 .links {

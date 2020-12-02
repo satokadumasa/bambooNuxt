@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -34,34 +33,28 @@
         {{item.email}}
       </div>
       <div class="col-2 col-sm-2 col-md-2 col-xl-2">
-        <button class="btn btn-primary" v-on:click="openModal">
+        <button class="btn btn-primary" v-on:click="openModal(item)">
           Detail
         </button>
       </div>
+      <detailModal :modalData="detailData" v-show="showFlg" @close='closeModal' />
     </div>
-    <Modal v-if="modalFlag">
-      <div>モーダルの内容</div>
-      <div>モーダルの内容</div>
-      <div>モーダルの内容</div>
-      <div>モーダルの内容</div>
-      <div>モーダルの内容</div>
-      <button @click="closeModal">閉じる</button>
-    </Modal>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import Modal from '~/components/Modal.vue'
+import UserDetailModal from '~/components/UserDetailModal.vue'
 
 export default {
   components: {
-    Modal
+    'detailModal': UserDetailModal
   },
   data() {
     return {
       user_list: [],
-      modalFlag: false
+      detailData: {},
+      showFlg: false
     }
   },
   mounted(){
@@ -71,11 +64,15 @@ export default {
     detail() {
       alert('detail');
     },
-    openModal() {
-      this.modalFlag = true
+    openModal(record) {
+      console.log('openModal');
+      console.log(record);
+      this.detailData = record;
+      this.showFlg = true
     },
     closeModal() {
-      this.modalFlag = false
+      console.log('closeModal');
+      this.showFlg = false
     },
   }
 }

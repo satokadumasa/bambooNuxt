@@ -3,8 +3,8 @@ const envSet = require(`./env.${environment}.js`);
 console.log(envSet);
 export default {
   server: {
-    port: 8080, // デフォルト: 3000
-    host: '0.0.0.0' // デフォルト: localhost
+    port: 3000, // デフォルト: 3000
+    host: 'localhost' // デフォルト: localhost
   },
 
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
